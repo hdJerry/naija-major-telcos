@@ -56,16 +56,24 @@ async function getDigits(digit){
 /*
   Function to validate and return the Network Provider
 */
-
 function validateNetwork(value){
   let checks = '';
   if(value.startsWith('+234')){
     checks = value.slice(4,7);
+    if(value.length > 14){
+      return "Not Found!!";
+    }
   }else if(value.startsWith('234')){
     checks = value.slice(3,6);
+    if(value.length > 13){
+      return "Not Found!!";
+    }
   }
   else{
     checks = value.slice(1,4);
+    if(value.length > 11){
+      return "Not Found!!";
+    }
   }
   let numKeys = Object.keys(numbers);
   let result = '';
